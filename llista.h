@@ -4,7 +4,7 @@
 #define MAX_NOM 50
 
 typedef struct{
-  char nom[50];
+  char nom[MAX_NOM];
   int punts
 }Jugador;
 
@@ -18,6 +18,8 @@ typedef struct{
   NodeORD *ant;
   NodeORD *seg;
 }LlistaBiOrd;
+
+Node ElementIndefinit();
 
 LlistaBiOrd LLISTABIORD_crea();
 

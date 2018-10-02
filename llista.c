@@ -1,6 +1,18 @@
 
 #include "llista.h"
 
+Node ElementIndefinit(){
+  Node aux;
+  int i;
+
+  for (i=0;i<MAX_NOM;i++){
+    aux.nom[i]='\0'
+  }
+  aux.punts = 0;
+
+  return ( aux );
+}
+
 LlistaBiOrd LLISTABIORD_crea(){
 
 }
