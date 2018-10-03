@@ -35,7 +35,7 @@ void LLISTABIORD_vesInici(LlistaBiOrd *l){
 }
 
 void LLISTABIORD_avanca(LlistaBiOrd *l){
-
+    l.ant = (*(*(l).ant).seg).seg;
 }
 
 void LLISTABIORD_enrera(LlistaBiOrd *l){
