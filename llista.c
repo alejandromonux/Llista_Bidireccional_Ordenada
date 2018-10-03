@@ -21,7 +21,7 @@ LlistaBiOrd LLISTABIORD_crea(){
   *aux= ElementIndefinit();
 
   l.pri = aux;
-  l.ante = aux;
+  l.ant = aux;
   l.ult = aux;
 }
 
@@ -30,7 +30,7 @@ void LLISTABIORD_inserirOrdenat(LlistaBiOrd *l, Jugador p){
 }
 
 void LLISTABIORD_vesInici(LlistaBiOrd *l){
-
+  l.ant = l.pri;
 }
 
 void LLISTABIORD_avanca(LlistaBiOrd *l){
