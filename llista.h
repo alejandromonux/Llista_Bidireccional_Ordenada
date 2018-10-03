@@ -16,7 +16,7 @@ typedef struct N{
 typedef struct{
   NodeORD *pri;
   NodeORD *ant;
-  NodeORD *seg;
+  NodeORD *ult;
 }LlistaBiOrd;
 
 Node ElementIndefinit();

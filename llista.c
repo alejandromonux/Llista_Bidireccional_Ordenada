@@ -6,15 +6,23 @@ Node ElementIndefinit(){
   int i;
 
   for (i=0;i<MAX_NOM;i++){
-    aux.nom[i]='\0'
+    aux.pj.nom[i]='\0'
   }
-  aux.punts = 0;
-
+  aux.pj.punts = 0;
+  aux.seg = NULL;
   return ( aux );
 }
 
 LlistaBiOrd LLISTABIORD_crea(){
+  LlistaBiOrd l;
+  Node *aux;
 
+  aux=(Node *)mallox(sizeof(Node));
+  *aux= ElementIndefinit();
+
+  l.pri = aux;
+  l.ante = aux;
+  l.ult = aux;
 }
 
 void LLISTABIORD_inserirOrdenat(LlistaBiOrd *l, Jugador p){
