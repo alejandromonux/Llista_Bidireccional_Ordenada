@@ -8,6 +8,7 @@ Node ElementIndefinit(){
   for (i=0;i<MAX_NOM;i++){
     aux.pj.nom[i]='\0'
   }
+
   aux.pj.punts = 0;
   aux.seg = NULL;
   return ( aux );
@@ -37,7 +38,7 @@ void LLISTABIORD_avanca(LlistaBiOrd *l){
 
 }
 
-void LLISTABIORD_enrera(LlistaBiOrd *l)
+void LLISTABIORD_enrera(LlistaBiOrd *l){
 
 }
 

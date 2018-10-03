@@ -11,6 +11,7 @@ typedef struct{
 typedef struct N{
   Jugador pj;
   struct N *seg;
+  struct N* ant;
 }NodeORD;
 
 typedef struct{
