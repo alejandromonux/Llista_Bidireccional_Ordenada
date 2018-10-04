@@ -109,13 +109,21 @@ void LLISTABIORD_esborra(LlistaBiOrd *l){
 }
 
 int LLISTABIORD_fi(LlistaBiOrd *l){
- return ((*(*l).ant).seg == NULL)
+ return ((*(*l).ant).seg == NULL);
 }
 
 int LLISTABIORD_buida(LlistaBiOrd *l){
-  return ((*l).pri == NULL)
+  return ((*l).pri == NULL);
 }
 
 void LLISTABIORD_destrueix(LlistaBiOrd *l){
+  NodeORD *aux;
 
+  //Fins que el primer element sigui nul, s'asigna a aux el primer element, es passa el primer al següent del primer i es llibera el primer de tots.
+  while ((*l).pri != NULL){
+    aux = (*l).pri;
+    (*l).pri = (*(*l).pri).seg;
+    free(aux);
+  }
+  (*l).ant = NULL;
 }
