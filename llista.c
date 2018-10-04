@@ -66,6 +66,11 @@ void LLISTABIORD_vesInici(LlistaBiOrd *l){
   (*l).ant = (*l).pri;
 }
 
+void LLISTABIORD_vesfi(LlistaBiOrd *l){
+  (*l).ant = (*l).ult;
+}
+
+
 void LLISTABIORD_avanca(LlistaBiOrd *l){
     (*l).ant = (*(*(*l).ant).seg).seg;
 }
@@ -103,7 +108,7 @@ void LLISTABIORD_esborra(LlistaBiOrd *l){
   }
 }
 
-void LLISTABIORD_fi(LlistaBiOrd *l){}
+void LLISTABIORD_fi(LlistaBiOrd *l){
 
 }
 
