@@ -108,12 +108,12 @@ void LLISTABIORD_esborra(LlistaBiOrd *l){
   }
 }
 
-void LLISTABIORD_fi(LlistaBiOrd *l){
+int LLISTABIORD_fi(LlistaBiOrd *l){
  return ((*(*l).ant).seg == NULL)
 }
 
-void LLISTABIORD_buida(LlistaBiOrd *l){
-
+int LLISTABIORD_buida(LlistaBiOrd *l){
+  return ((*l).pri == NULL)
 }
 
 void LLISTABIORD_destrueix(LlistaBiOrd *l){
