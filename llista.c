@@ -89,7 +89,18 @@ Jugador LLISTABIORD_consulta(LlistaBiOrd *l){
 }
 
 void LLISTABIORD_esborra(LlistaBiOrd *l){
+  NodeORD *aux;
 
+  if ((*(*l).ant).seg == NULL){
+    printf("Error al borrar, llista buida o PDI fora de rang");
+  }else{
+    //apuntem aux a la posició a la que apunta el punt de interés
+    aux = (*(*l).ant).seg;
+    //Treiem aux de la llista, cambiant l'enllaç de següent al següent element
+    (*(*l).ant).seg = (*aux).seg
+    //Alliberem la posició de memoria a la que apunta aux
+    free(aux);
+  }
 }
 
 void LLISTABIORD_fi(LlistaBiOrd *l){}
