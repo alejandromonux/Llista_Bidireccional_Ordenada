@@ -63,19 +63,29 @@ void LLISTABIORD_inserirOrdenat(LlistaBiOrd *l, Jugador p){
 }
 
 void LLISTABIORD_vesInici(LlistaBiOrd *l){
-  l.ant = l.pri;
+  (*l).ant = (*l).pri;
 }
 
 void LLISTABIORD_avanca(LlistaBiOrd *l){
-    l.ant = (*(*(l).ant).seg).seg;
+    (*l).ant = (*(*(*l).ant).seg).seg;
 }
 
 void LLISTABIORD_enrera(LlistaBiOrd *l){
-  l.ant = (*(l).ant).ant;
+  (*l).ant = (*(*l).ant).ant;
 }
 
 Jugador LLISTABIORD_consulta(LlistaBiOrd *l){
+  Jugador e = ElementIndefinit();
 
+  //Es comprova si la posició apuntada es nul·la o no
+  if ((*(l).ant).seg != NULL){
+      //Si no, es copia la informació a la variable a retornar
+  		e = (*(*(l).ant).seg).jugador;
+  	}else{
+      //Si ho es, es retorna un error
+  		printf("Error, llista buida o PDI fora de rang");
+  	}
+  	return (e);
 }
 
 void LLISTABIORD_esborra(LlistaBiOrd *l){
