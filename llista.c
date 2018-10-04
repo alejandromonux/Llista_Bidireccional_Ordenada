@@ -109,7 +109,7 @@ void LLISTABIORD_esborra(LlistaBiOrd *l){
 }
 
 void LLISTABIORD_fi(LlistaBiOrd *l){
-
+ return ((*(*l).ant).seg == NULL)
 }
 
 void LLISTABIORD_buida(LlistaBiOrd *l){
