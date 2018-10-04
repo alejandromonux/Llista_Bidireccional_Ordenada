@@ -18,12 +18,15 @@ LlistaBiOrd LLISTABIORD_crea(){
   LlistaBiOrd l;
   Node *aux;
 
-  aux=(Node *)mallox(sizeof(Node));
-  *aux= ElementIndefinit();
-
-  l.pri = aux;
-  l.ant = aux;
-  l.ult = aux;
+  aux = (NodeORD *)malloc(sizeof(NodeORD));
+  if (aux == NULL) {
+    printf("Error en reservar memoria al crear la llista")
+  } else {
+    *aux = ElementIndefinit();
+    l.pri = aux;
+    l.ant = aux;
+    l.ult = aux;
+  }
 }
 
 void LLISTABIORD_inserirOrdenat(LlistaBiOrd *l, Jugador p){
