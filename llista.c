@@ -71,7 +71,7 @@ void LLISTABIORD_avanca(LlistaBiOrd *l){
 }
 
 void LLISTABIORD_enrera(LlistaBiOrd *l){
-
+  l.ant = (*(l).ant).ant;
 }
 
 Jugador LLISTABIORD_consulta(LlistaBiOrd *l){
