@@ -112,6 +112,10 @@ int LLISTABIORD_fi(LlistaBiOrd *l){
  return ((*(*l).ant).seg == NULL);
 }
 
+int LLISTABIORD_principi(LlistaBiOrd *l){
+  return ((*(*l).pri).seg == NULL);
+}
+
 int LLISTABIORD_buida(LlistaBiOrd *l){
   return ((*l).pri == NULL);
 }

@@ -40,6 +40,8 @@ void LLISTABIORD_esborra(LlistaBiOrd *l);
 
 int LLISTABIORD_fi(LlistaBiOrd *l);
 
+int LLISTABIORD_principi(LlistaBiOrd *l);
+
 int LLISTABIORD_buida(LlistaBiOrd *l);
 
 void LLISTABIORD_destrueix(LlistaBiOrd *l);
