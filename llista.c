@@ -24,6 +24,7 @@ LlistaBIORD LLISTABIORD_crea(){
 		(*aux).jugador = ELEMENT_indefinitORD();
 		l.pri = aux;
 		(*(l).pri).seg = NULL;
+    (*(l).pri).ante = NULL;
 		l.ant = l.pri;
 	}
 	return(l);//Es retorna la llista amb el fantasma.
@@ -52,15 +53,23 @@ void LLISTABIORD_insereixOrdenat(LlistaBIORD *l, Rank e){
 
 		//Una vegada arribat al punt pertinent, es col·loca aux en la posició
 		(*aux).seg = (*(*l).ant).seg;
-    (*aux).ante = (*(*l).ant).ante;
-		(*(*l).ant).seg = aux;
-    (*(*(*l).ant).seg).ante = aux;
+    (*aux).ante = (*l).ant;
+    if(!LLISTABIORD_fi(*l)){
+      (*(*(*l).ant).seg).ante = aux;
+    }
+    (*(*l).ant).seg = aux;
+
+    if (((*(*(*l).ant).seg).seg) == NULL){
+      (*l).ult = (*l).ant;
+    }
+
 		//El PDI es col·loca en la posició que tenía a l'inici
 		(*l).ant = tmp;
 
 		if ((*(*l).ant).seg == aux){
 			(*l).ant = aux;
 		}
+
 	}
 }
 
@@ -113,6 +122,7 @@ void LLISTABIORD_esborra(LlistaBIORD *l){
 		aux = (*(*l).ant).seg;
 		//Es col·loca el PDI al següent al que apunta aux, es a dir, on pertocaria
 		(*(*l).ant).seg = (*aux).seg;
+    (*(*aux).seg).ante = (*l).ant;
 		//Es llibera l'espai de memoria a que apunta aux
 		free(aux);
 	}

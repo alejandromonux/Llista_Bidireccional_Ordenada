@@ -43,12 +43,14 @@
    LLISTABIORD_avanca(&l);
    LLISTABIORD_esborra(&l);
 
-   printf("Mostrant els jugadors de més gran a més petit\n");
+   printf("\nMostrant els jugadors de més gran a més petit\n");
    LLISTABIORD_vesfi(&l);
-   while (!LLISTABIORD_principi(&l)) {
+   pj=LLISTABIORD_consulta(l);
+   printf("%s : %d\n", pj.nom_j, pj.puntuacio);
+   while (/*((*(l).ant).ante!=NULL)*/!LLISTABIORD_principi(&l)) {
+     LLISTABIORD_enrera(&l);
      pj=LLISTABIORD_consulta(l);
      printf("%s : %d\n", pj.nom_j, pj.puntuacio);
-     LLISTABIORD_enrera(&l);
    }
 
    printf("\nReiniciant registre...\n");
