@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-I.
+CFLAGS=-I -ggdb.
 DEPS = llista.h
 OBJ = main.c llista.c
 

@@ -1,48 +1,55 @@
+#ifndef _LLISTA_ORD_H_
+#define _LLISTA_ORD_H_
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_NOM 50
 
+#define MAX_NOMS 30
+
+//Tipus que serveix per crear i modificar el ranking ordenat
 typedef struct{
-  char nom[MAX_NOM];
-  int punts;
-}Jugador;
+	char nom_j[MAX_NOMS];
+	int puntuacio;
+}Rank;
 
-typedef struct N{
-  Jugador pj;
-  struct N *seg;
-  struct N* ant;
+typedef struct M {
+	Rank jugador;
+	struct M *seg;
+  struct M *ante;
 }NodeORD;
 
 typedef struct{
-  NodeORD *pri;
-  NodeORD *ant;
+	NodeORD *pri;
+	NodeORD *ant;
   NodeORD *ult;
-}LlistaBiOrd;
+}LlistaBIORD;
 
-NodeORD elementIndefinit();
+Rank ELEMENT_indefinitORD();
 
-LlistaBiOrd LLISTABIORD_crea();
+LlistaBIORD LLISTABIORD_crea();
 
-void LLISTABIORD_inserirOrdenat(LlistaBiOrd *l, Jugador p);
+void LLISTABIORD_insereixOrdenat(LlistaBIORD *l, Rank e);
 
-void LLISTABIORD_vesInici(LlistaBiOrd *l);
+void LLISTABIORD_vesInici(LlistaBIORD *l);
 
-void LLISTABIORD_vesfi(LlistaBiOrd *l);
+void LLISTABIORD_vesfi(LlistaBIORD *l);
 
-void LLISTABIORD_avanca(LlistaBiOrd *l);
+void LLISTABIORD_avanca(LlistaBIORD *l);
 
-void LLISTABIORD_enrera(LlistaBiOrd *l);
+void LLISTABIORD_enrera(LlistaBIORD *l);
 
-Jugador LLISTABIORD_consulta(LlistaBiOrd *l);
+Rank LLISTABIORD_consulta(LlistaBIORD l);
 
-void LLISTABIORD_esborra(LlistaBiOrd *l);
+void LLISTABIORD_esborra(LlistaBIORD *l);
 
-int LLISTABIORD_fi(LlistaBiOrd *l);
+int LLISTABIORD_fi(LlistaBIORD l);
 
-int LLISTABIORD_principi(LlistaBiOrd *l);
+int LLISTABIORD_principi(LlistaBIORD *l);
 
-int LLISTABIORD_buida(LlistaBiOrd *l);
+int LLISTABIORD_buida(LlistaBIORD l);
 
-void LLISTABIORD_destrueix(LlistaBiOrd *l);
+void LLISTABIORD_destrueix(LlistaBIORD *l);
+
+#endif
