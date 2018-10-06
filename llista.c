@@ -1,14 +1,10 @@
 
 #include "llista.h"
 
-Node ElementIndefinit(){
-  Node aux;
-  int i;
+NodeORD elementIndefinit(){
+  NodeORD aux;
 
-  for (i=0;i<MAX_NOM;i++){
-    aux.pj.nom[i]='\0'
-  }
-
+  aux.pj.nom[0]='\0';
   aux.pj.punts = 0;
   aux.seg = NULL;
   return ( aux );
@@ -16,13 +12,13 @@ Node ElementIndefinit(){
 
 LlistaBiOrd LLISTABIORD_crea(){
   LlistaBiOrd l;
-  Node *aux;
+  NodeORD *aux;
 
   aux = (NodeORD *)malloc(sizeof(NodeORD));
   if (aux == NULL) {
-    printf("Error en reservar memoria al crear la llista")
+    printf("Error en reservar memoria al crear la llista");
   } else {
-    *aux = ElementIndefinit();
+    *aux = elementIndefinit();
     l.pri = aux;
     l.ant = aux;
     l.ult = aux;
@@ -45,9 +41,9 @@ void LLISTABIORD_inserirOrdenat(LlistaBiOrd *l, Jugador p){
 
 		//Es va al inici i es comença una comprovació amb un bucle, de manera que s'avanca fins que s'arriva al final o
 		//la puntuació es més gran que la de l'element a inserir
-		LLISTA_BIORD_vesInici(l);
-		while (((*(*l).ant).seg != NULL) && ((*(*(*l).ant).seg).pj.punts < e.punts)){
-			LLISTA_BIORD_avanca(l);
+		LLISTABIORD_vesInici(l);
+		while (((*(*l).ant).seg != NULL) && ((*(*(*l).ant).seg).pj.punts < p.punts)){
+			LLISTABIORD_avanca(l);
 		}
 
 		//Una vegada arribat al punt pertinent, es col·loca aux en la posició
@@ -80,12 +76,11 @@ void LLISTABIORD_enrera(LlistaBiOrd *l){
 }
 
 Jugador LLISTABIORD_consulta(LlistaBiOrd *l){
-  Jugador e = ElementIndefinit();
-
+  Jugador e;
   //Es comprova si la posició apuntada es nul·la o no
-  if ((*(l).ant).seg != NULL){
+  if ((*(*l).ant).seg != NULL){
       //Si no, es copia la informació a la variable a retornar
-  		e = (*(*(l).ant).seg).jugador;
+  		e = (*(*(*l).ant).seg).pj;
   	}else{
       //Si ho es, es retorna un error
   		printf("Error, llista buida o PDI fora de rang");
@@ -102,7 +97,7 @@ void LLISTABIORD_esborra(LlistaBiOrd *l){
     //apuntem aux a la posició a la que apunta el punt de interés
     aux = (*(*l).ant).seg;
     //Treiem aux de la llista, cambiant l'enllaç de següent al següent element
-    (*(*l).ant).seg = (*aux).seg
+    (*(*l).ant).seg = (*aux).seg;
     //Alliberem la posició de memoria a la que apunta aux
     free(aux);
   }

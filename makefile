@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-I.
 DEPS = llista.h
-OBJ = llista.o llista.c
+OBJ = main.c llista.c
 
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)

@@ -1,11 +1,12 @@
-#include stdio.h
-#include string.h
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #define MAX_NOM 50
 
 typedef struct{
   char nom[MAX_NOM];
-  int punts
+  int punts;
 }Jugador;
 
 typedef struct N{
@@ -20,7 +21,7 @@ typedef struct{
   NodeORD *ult;
 }LlistaBiOrd;
 
-Node ElementIndefinit();
+NodeORD elementIndefinit();
 
 LlistaBiOrd LLISTABIORD_crea();
 
