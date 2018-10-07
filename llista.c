@@ -107,7 +107,7 @@ void LLISTABIORD_insereixOrdenat(LlistaBIORD *l, Rank e){
 /***********************************************
 *
 *@Finalitat: Posar el PDI de la llista bidireccional al inici
-*@Parametres:	l: La llista en que el PDI es deu retornar al inici
+*@Parametres:	l: La llista en que el PDI es deu col·locar al inici
 *@Retorn: ---.
 *
 ************************************************/
